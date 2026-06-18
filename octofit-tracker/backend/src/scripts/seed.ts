@@ -1,4 +1,4 @@
-import { connectDatabase } from '../database.js';
+import { connectDatabase } from '../config/database.js';
 import { Activity } from '../models/activity.js';
 import { LeaderboardEntry } from '../models/leaderboard-entry.js';
 import { Team } from '../models/team.js';

@@ -1,5 +1,5 @@
 import app from './app.js';
-import { connectDatabase } from './database.js';
+import { connectDatabase } from './config/database.js';
 import { getApiBaseUrl } from './config.js';
 const port = Number.parseInt(process.env.PORT ?? '8000', 10);
 async function startServer() {
