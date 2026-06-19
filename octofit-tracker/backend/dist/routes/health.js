@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getApiBaseUrl } from '../config.js';
+import { getApiBaseUrl } from '../server.js';
 const router = Router();
 router.get('/', (_request, response) => {
     response.json({

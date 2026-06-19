@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import type { Model } from 'mongoose';
-import { getApiBaseUrl } from '../config.js';
+import { getApiBaseUrl } from '../server.js';
 
 type ResourceResponse = {
   resource: string;

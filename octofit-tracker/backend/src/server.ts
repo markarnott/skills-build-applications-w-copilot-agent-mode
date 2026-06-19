@@ -1,6 +1,15 @@
 import app from './app.js';
 import { connectDatabase } from './config/database.js';
-import { API_PORT, getApiBaseUrl } from './config.js';
+import { pathToFileURL } from 'node:url';
+
+export const API_PORT = 8000;
+
+export function getApiBaseUrl() {
+  const codespaceName = process.env.CODESPACE_NAME;
+  return codespaceName
+    ? `https://${codespaceName}-${API_PORT}.app.github.dev`
+    : `http://localhost:${API_PORT}`;
+}
 
 async function startServer() {
   await connectDatabase();
@@ -9,4 +18,9 @@ async function startServer() {
   });
 }
 
-void startServer();
+const isDirectExecution =
+  process.argv[1] !== undefined && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (isDirectExecution) {
+  void startServer();
+}

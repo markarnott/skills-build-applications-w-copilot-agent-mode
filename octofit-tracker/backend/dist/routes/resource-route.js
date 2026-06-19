@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getApiBaseUrl } from '../config.js';
+import { getApiBaseUrl } from '../server.js';
 export function createResourceRouter(resource, model) {
     const router = Router();
     router.get('/', async (_request, response, next) => {
