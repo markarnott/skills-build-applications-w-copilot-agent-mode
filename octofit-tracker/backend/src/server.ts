@@ -2,18 +2,16 @@ import app from './app.js';
 import { connectDatabase } from './config/database.js';
 import { pathToFileURL } from 'node:url';
 
-export const API_PORT = 8000;
-
 export function getApiBaseUrl() {
   const codespaceName = process.env.CODESPACE_NAME;
   return codespaceName
-    ? `https://${codespaceName}-${API_PORT}.app.github.dev`
-    : `http://localhost:${API_PORT}`;
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : `http://localhost:8000`;
 }
 
 async function startServer() {
   await connectDatabase();
-  app.listen(API_PORT, () => {
+  app.listen(8000, () => {
     console.log(`OctoFit Tracker API listening on ${getApiBaseUrl()}`);
   });
 }
